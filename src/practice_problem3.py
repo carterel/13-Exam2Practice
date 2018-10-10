@@ -273,7 +273,7 @@ def practice_problem3b(sequence):
       :type: sequence: list    or tuple or string
     """
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # IMPLEMENTATION REQUIREMENT:  You are NOT allowed to use the
@@ -286,6 +286,12 @@ def practice_problem3b(sequence):
     #    TIME ESTIMATE:   8 minutes.
     ####################################################################
 
+    last_item = sequence[len(sequence) - 1]
+    for k in range(len(sequence) - 1):
+        if sequence[k] == last_item:
+            return True
+
+    return False
 
 def run_test_practice_problem3c():
     """ Tests the    practice_problem3c    function. """
@@ -368,7 +374,12 @@ def practice_problem3c(sequence):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   8 minutes.
     ####################################################################
+    new_list = []
+    for k in range(len(sequence)):
+        if sequence[k] == 0:
+            new_list.append(k)
 
+    return new_list
 
 def run_test_practice_problem3d():
     """ Tests the    practice_problem3d    function. """
@@ -450,7 +461,11 @@ def practice_problem3d(sequence):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   8 minutes for each part of this problem.
     ####################################################################
-
+    # for k in range(len(sequence)):
+    #     if sequence[k] == 0:
+    #         return k
+    #
+    # return -1
 
     ####################################################################
     # TODO: 6. Just ABOVE this TODO, you should have implemented
@@ -468,6 +483,11 @@ def practice_problem3d(sequence):
     #          This solution should *** HAVE NO LOOP (no FOR). ***
     ####################################################################
 
+    indice = practice_problem3c(sequence)
+    if indice == []:
+        return -1
+    else:
+        return indice[0]
 
 def run_test_practice_problem3e():
     """ Tests the    practice_problem3e    function. """
@@ -536,7 +556,11 @@ def practice_problem3e(sequence):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   8 minutes.
     ####################################################################
+    total = 0
+    for k in range(0, len(sequence), 2):
+        total += sequence[k]
 
+    return total
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
