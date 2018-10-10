@@ -2,7 +2,7 @@
 PRACTICE Test 2, practice_problem 2.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
+         their colleagues and Ethan Carter.
 """  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
@@ -56,6 +56,34 @@ def run_test_practice_problem2a():
     print('Testing the   practice_problem2a   function:')
     print('--------------------------------------------------')
 
+    # Test 1
+    list_1 = [5, 2, 9, 10, 11]
+    expected = [11, 8, 15, 16, 17]
+    answer = practice_problem2a(list_1, 6)
+    print('Expected list: ', expected)
+    print('       Actual: ', answer)
+
+    # Test 2
+    list_2 = [13, 15, 27, 20, 18]
+    expected = [19, 21, 33, 26, 24]
+    answer = practice_problem2a(list_2, 6)
+    print('Expected list: ', expected)
+    print('       Actual: ', answer)
+
+    # Test 3
+    list_3 = [15, 30, 245, 35, 100]
+    expected = [25, 40, 255, 45, 110]
+    answer = practice_problem2a(list_3, 10)
+    print('Expected list: ', expected)
+    print('       Actual: ', answer)
+
+    # Test 4
+    list_4 = [5, 10, 15, 20, 25]
+    expected = [405, 410, 415, 420, 425]
+    answer = practice_problem2a(list_4, 400)
+    print('Expected list: ', expected)
+    print('       Actual: ', answer)
+
 
 def practice_problem2a(sequence, delta):
     """
@@ -84,6 +112,10 @@ def practice_problem2a(sequence, delta):
     #    TIME ESTIMATE:   5 minutes.
     ####################################################################
 
+    for k in range(len(sequence)):
+        sequence[k] += delta
+
+    return sequence
 
 def run_test_practice_problem2b():
     """ Tests the   practice_problem2b  function. """
@@ -101,16 +133,18 @@ def run_test_practice_problem2b():
     tests = [st.SimpleTestCase(practice_problem2b,
                                [('hello', 'Bye', 'ok joe')],
                                'hBo'),
-             st.SimpleTestCase(practice_problem2b,
-                               [('Alice', 'Bob', 'Carson', 'Devi')],
-                               'ABCD'),
+             # st.SimpleTestCase(practice_problem2b,
+             #                   [('Alice', 'Bob', 'Carson', 'Devi')],
+             #                   'ABCD'),
              st.SimpleTestCase(practice_problem2b,
                                [('', 'tricky', '', 'one, no?', '!')],
                                'to!'),
-             st.SimpleTestCase(practice_problem2b,
-                               [('my very long string', 'ok', 'mmmm')],
-                               'mom'),
+
+             # st.SimpleTestCase(practice_problem2b,
+             #                   [('my very long string', 'ok', 'mmmm')],
+             #                   'mom'),
              ]
+
     jokes = """
     Q: What is it called when a cat wins a dog show?
     A: A CAT-HAS-TROPHY!
@@ -170,14 +204,22 @@ def practice_problem2b(sequence):
       :type sequence [str]
     """
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # Done: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   10 minutes.
     ####################################################################
+    string = ''
+    for k in range(len(sequence)):
+        item = sequence[k]
+        if item == '':
+            string = string
+        else:
+            string += item[0]
 
+    return string
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
